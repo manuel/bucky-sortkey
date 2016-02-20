@@ -1,11 +1,11 @@
-var STR_START = '"'
-var ARR_START = '('
+var STR_START = '"' // ASCII: 34
+var ARR_START = '[' // ASCII: 91
 var STR_END   = '\u0000'
 var ARR_END   = '\u0000'
 
-function sortKey (stringOrArray) {
+function toSortKey (stringOrArray) {
     if (Array.isArray(stringOrArray)) {
-        return ARR_START + stringOrArray.map(sortKey).join('') + ARR_END
+        return ARR_START + stringOrArray.map(toSortKey).join('') + ARR_END
     } else if (typeof stringOrArray === 'string') {
         if (stringOrArray.indexOf("\u0000") !== -1) {
             throw "Must not contain NUL byte: " + stringOrArray;
@@ -16,4 +16,4 @@ function sortKey (stringOrArray) {
     }
 }
 
-module.exports.sortKey = sortKey
+module.exports.toSortKey = toSortKey

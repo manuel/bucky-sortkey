@@ -14,4 +14,6 @@ var listN = jsc.oneof([jsc.asciistring, jsc.array(list3)])
 jsc.check(jsc.forall(listN, listN, function (sexp1, sexp2) {
     return (spec.sexpCompare(sexp1, sexp2) === spec.sortKeyCompare(sexp1, sexp2))
         && (spec.sexpCompare(sexp2, sexp1) === spec.sortKeyCompare(sexp2, sexp1))
+        && (spec.sexpCompare(sexp1, sexp1) === spec.sortKeyCompare(sexp1, sexp1))
+        && (spec.sexpCompare(sexp2, sexp2) === spec.sortKeyCompare(sexp2, sexp2))
 }), { tests: 50000 })

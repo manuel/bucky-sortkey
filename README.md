@@ -15,7 +15,7 @@ An s-expression is either:
 Strings sort before lists, and shorter strings (lists) sort before
 longer strings (lists) that have the shorter string (list) as prefix.
 
-Here are some sample s-expressions and their sort keys:
+Here are some sample s-expressions and their sort keys (in increasing order):
 
 ````
 expr: "foo"

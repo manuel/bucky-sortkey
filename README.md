@@ -2,8 +2,8 @@
 
 This package lets you encode s-expressions like ["foo", ["bar",
 ["baz"], []]] as special strings, called sort keys, that produce a
-"natural" sort order when compared using ordinary strcmp lexicographic
-comparison.
+"natural" sort order when compared using ordinary strcmp()
+lexicographic comparison.
 
 An s-expression is either:
 
@@ -28,9 +28,9 @@ sort: ["foo\0[\0["bar\0\0\0
 
 ## Format
 
-A string is encoded as: '"' + string + '\0'
+A string is encoded as: `"` + string + `\0`
 
-A list is encoded as: '[' + concatenated contents of list + '\0'
+A list is encoded as: `[` + concatenated contents of list + `\0`
 
-'"' (ASCII 34) sorts before '[' (ASCII 91), so strings automatically
+`"` (ASCII 34) sorts before `[` (ASCII 91), so strings automatically
 come before lists.

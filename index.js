@@ -8,7 +8,7 @@ function toSortKey (stringOrArray) {
         return ARR_START + stringOrArray.map(toSortKey).join('') + ARR_END
     } else if (typeof stringOrArray === 'string') {
         if (stringOrArray.indexOf("\u0000") !== -1) {
-            throw "Must not contain NUL byte: " + stringOrArray;
+            throw "Must not contain NUL byte: " + stringOrArray
         }
         return STR_START + stringOrArray + STR_END
     } else {
